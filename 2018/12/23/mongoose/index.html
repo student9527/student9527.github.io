@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>mongoose 基本設定 - Student9527</title>
+
+
+    <meta name="description" content="Add Mongoose Install and configure Mongoose Setup campground model Use campground model inside of our routes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongoose 基本設定">
+<meta property="og:url" content="http://student9527.github.io/2018/12/23/mongoose/index.html">
+<meta property="og:site_name" content="Student9527">
+<meta property="og:description" content="Add Mongoose Install and configure Mongoose Setup campground model Use campground model inside of our routes">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="http://student9527.github.io/images/og_image.png">
+<meta property="og:updated_time" content="2019-01-13T10:04:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mongoose 基本設定">
+<meta name="twitter:description" content="Add Mongoose Install and configure Mongoose Setup campground model Use campground model inside of our routes">
+<meta name="twitter:image" content="http://student9527.github.io/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/test-666321.appspot.com/o/student9527%2Fimg%2Flogo.png?alt=media&token=2beaa3f2-97b2-45b9-aee3-8234a2f2f7f8">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123803921-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-123803921-1');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="https://firebasestorage.googleapis.com/v0/b/test-666321.appspot.com/o/student9527%2Fimg%2Flogo.png?alt=media&token=2beaa3f2-97b2-45b9-aee3-8234a2f2f7f8" alt="mongoose 基本設定" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">首頁</a>
+                
+                <a class="navbar-item"
+                href="/categories/create">談創作</a>
+                
+                <a class="navbar-item"
+                href="/categories/learning">心理學</a>
+                
+                <a class="navbar-item"
+                href="/categories/view">觀點</a>
+                
+                <a class="navbar-item"
+                href="/categories/code">程式</a>
+                
+                <a class="navbar-item"
+                href="/archives">文章列表</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="GitHub" href="https://github.com/studentmkp">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜尋" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-12-23T15:09:31.000Z">2018-12-23</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/code/">code</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 分鐘 閱讀文 (大約 584 個字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                mongoose 基本設定
+            
+        </h1>
+        <div class="content">
+            <h1 id="Add-Mongoose"><a href="#Add-Mongoose" class="headerlink" title="Add Mongoose"></a>Add Mongoose</h1><ul>
+<li>Install and configure Mongoose</li>
+<li>Setup campground model</li>
+<li>Use campground model inside of our routes</li>
+</ul>
+<a id="more"></a>
+<h2 id="注意：以下為-cluod9-環境下操作"><a href="#注意：以下為-cluod9-環境下操作" class="headerlink" title="注意：以下為 cluod9 環境下操作"></a>注意：以下為 cluod9 環境下操作</h2><p>先到 v2 資料夾，安裝好mongoose</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install mongoose --save</span><br></pre></td></tr></table></figure>
+<p>檢查 package.json 有無安裝好 Mongoose<br>接下來</p>
+<p>在終端機 c9 最原本處執行 MongoDB</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mongod</span><br></pre></td></tr></table></figure>
+<p>在 app.js 內最上加入 mongoose 因此會有</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> express    = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>),</span><br><span class="line">    app        = express(),</span><br><span class="line">    bodyParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">'bodyparser'</span>),</span><br><span class="line">    mongoose   = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>)</span><br></pre></td></tr></table></figure>
+<p>然後在終端機執行</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
+<p>來測試看看有沒有問題</p>
+<p>沒問題後，在 app.js 內連結 mongoose </p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongoose.connect(<span class="hljs-string">"mongodb://localhost/yelp_camp"</span>);</span><br></pre></td></tr></table></figure>
+<p>因此會有下列設定</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mongoose.connect(<span class="hljs-string">"mongodb://localhost/yelp_camp"</span>);</span><br><span class="line">app.use(bodyParser.urlencoded(&#123;<span class="hljs-attr">extended</span>: <span class="hljs-literal">true</span>&#125;));</span><br><span class="line">app.set(<span class="hljs-string">"view engine"</span>, <span class="hljs-string">"ejs"</span>);</span><br></pre></td></tr></table></figure>
+<p>接著測試看看 app.js ，可以之後來設定 Schema </p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// Schema Setup</span></span><br><span class="line"><span class="hljs-keyword">var</span> campgroundSchema = <span class="hljs-keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">	name: <span class="hljs-built_in">String</span>,</span><br><span class="line">	image: <span class="hljs-built_in">String</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> Campground = mongoose.model(<span class="hljs-string">"Campground"</span>, campgroundSchema);</span><br></pre></td></tr></table></figure>
+<p>設定好 Schema 後，測試看看是否能增加資料來使用，增加</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Campground.create(&#123;</span><br><span class="line">	name: <span class="hljs-string">"Salmon Creek"</span></span><br><span class="line">	image: <span class="hljs-string">"(url)"</span></span><br><span class="line">&#125;, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, campground</span>)</span>&#123;</span><br><span class="line">	<span class="hljs-keyword">if</span>(err)&#123;</span><br><span class="line">		<span class="hljs-built_in">console</span>.log(err);</span><br><span class="line">	&#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">		<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Newly Created Campground: "</span>);</span><br><span class="line">		<span class="hljs-built_in">console</span>.log(campground);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>終端機啟用 <code>node app.js</code> 試試有沒有成功。</li>
+<li>也在終端機輸入 <code>mongo</code> 然後 <code>show dbs</code> 試試看有沒有 yelp_camp 資料出現</li>
+<li>也可 <code>use yelp_camp</code> 看看</li>
+<li>再用 <code>show collections</code> 看看資料</li>
+<li>再用 <code>db.campgrounds.find()</code> 看看剛剛輸入的資料</li>
+<li>Ctrl + C 關閉 mongo 伺服器繼續編輯</li>
+</ul>
+<ul>
+<li>現在刪除剛剛測試的資料</li>
+</ul>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	name: <span class="hljs-string">"Salmon Creek"</span></span><br><span class="line">	image: <span class="hljs-string">"(url)"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>修改連結 /campground 的地方</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="hljs-string">"/campgrounds"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>)</span>&#123;</span><br><span class="line">	<span class="hljs-comment">// Get all campgrounds from DB</span></span><br><span class="line">	Campground.find(&#123;&#125;, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, allCampgrounds</span>)</span>&#123;</span><br><span class="line">		<span class="hljs-keyword">if</span>(err)&#123;</span><br><span class="line">			<span class="hljs-built_in">console</span>.log(err);</span><br><span class="line">		&#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">			res.render(<span class="hljs-string">"campgrounds"</span>,&#123;<span class="hljs-attr">campgrounds</span>:allCampgrounds&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>comment 之前測試能否使用 mongoose 的測試資料</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// Campground.create(&#123;</span></span><br><span class="line"><span class="hljs-comment">// 	name: "Salmon Creek"</span></span><br><span class="line"><span class="hljs-comment">// 	image: "(url)"</span></span><br><span class="line"><span class="hljs-comment">// &#125;, function(err, campground)&#123;</span></span><br><span class="line"><span class="hljs-comment">// 	if(err)&#123;</span></span><br><span class="line"><span class="hljs-comment">// 		console.log(err);</span></span><br><span class="line"><span class="hljs-comment">// 	&#125; else &#123;</span></span><br><span class="line"><span class="hljs-comment">// 		console.log("Newly Created Campground: ");</span></span><br><span class="line"><span class="hljs-comment">// 		console.log(campground);</span></span><br><span class="line"><span class="hljs-comment">// 	&#125;</span></span><br><span class="line"><span class="hljs-comment">// &#125;);</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>然後使用終端機 <code>node app.js</code> 來看看是否成功！</li>
+<li>成功後來解決一項問題，在前端介面輸入圖片url的時候若不輸入圖片，會有 campgrounds is not definded的情況</li>
+<li>問題在 app.post 部分的程式碼 <code>campground.push(newCampground)</code> 這邊是之前測試時推上剛剛 comment 掉的地方，於是我們要刪除這行，並修改成增加一段 Campground 且存到 DB 的程式碼，若不是則要跳到 campgrounds 頁面</li>
+</ul>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// Create a new campground and save to DB</span></span><br><span class="line">Campground.create(newCampground, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, newlyCreated</span>)</span>&#123;</span><br><span class="line">	<span class="hljs-keyword">if</span>(err)&#123;</span><br><span class="line">		<span class="hljs-built_in">console</span>.log(err);</span><br><span class="line">	&#125; <span class="hljs-keyword">else</span>&#123;</span><br><span class="line">		<span class="hljs-comment">// redirect back to campgrounds page</span></span><br><span class="line">		res.redirect(<span class="hljs-string">"/campgrounds"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>這樣就完成啦！！</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜歡這篇文章嗎? 贊助一下作者吧!</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/03/19/goToHall/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">台北車站大廳</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/09/28/expressWriting/">
+                <span class="level-item">科學家教你考試/上場前10分鐘可以降低緊張的做法</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="https://firebasestorage.googleapis.com/v0/b/test-666321.appspot.com/o/student9527%2Fimg%2Flogo.png?alt=media&amp;token=2beaa3f2-97b2-45b9-aee3-8234a2f2f7f8" alt="Student9527">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Student9527
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Professional Writer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Taipei</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分類
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        標籤
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        2
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://www.facebook.com/student9527/" target="_blank">
+                追蹤</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https://www.facebook.com/student9527/">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            連結
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://www.facebook.com/student9527/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Student9527</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.facebook.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分類
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/code/">
+            <span class="level-start">
+                <span class="level-item">code</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/create/">
+            <span class="level-start">
+                <span class="level-item">create</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/learning/">
+            <span class="level-start">
+                <span class="level-item">learning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/view/">
+            <span class="level-start">
+                <span class="level-item">view</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            標籤雲
+        </h3>
+        <a href="/tags/Express-writing/" style="font-size: 10px;">Express writing</a> <a href="/tags/education-problems/" style="font-size: 10px;">education problems</a>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/03/19/goToHall/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="台北車站大廳">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-18T17:28:47.000Z">2019-03-19</time></div>
+                    <a href="/2019/03/19/goToHall/" class="title has-link-black-ter is-size-6 has-text-weight-normal">台北車站大廳</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/view/">view</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/23/mongoose/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="mongoose 基本設定">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-23T15:09:31.000Z">2018-12-23</time></div>
+                    <a href="/2018/12/23/mongoose/" class="title has-link-black-ter is-size-6 has-text-weight-normal">mongoose 基本設定</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/code/">code</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/09/28/expressWriting/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="科學家教你考試/上場前10分鐘可以降低緊張的做法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-09-28T09:57:30.000Z">2018-09-28</time></div>
+                    <a href="/2018/09/28/expressWriting/" class="title has-link-black-ter is-size-6 has-text-weight-normal">科學家教你考試/上場前10分鐘可以降低緊張的做法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/learning/">learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/08/24/eduProduct/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="當教育變成商品，一些你沒想到的事">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-24T10:58:58.000Z">2018-08-24</time></div>
+                    <a href="/2018/08/24/eduProduct/" class="title has-link-black-ter is-size-6 has-text-weight-normal">當教育變成商品，一些你沒想到的事</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/view/">view</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/08/15/futureme/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="有好的想法但遲遲未行動？該與「他」來場對話了。">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-15T12:56:00.000Z">2018-08-15</time></div>
+                    <a href="/2018/08/15/futureme/" class="title has-link-black-ter is-size-6 has-text-weight-normal">有好的想法但遲遲未行動？該與「他」來場對話了。</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/learning/">learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            彙整
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                標籤
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Express-writing/">
+                        <span class="tag">Express writing</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/education-problems/">
+                        <span class="tag">education problems</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-666321.appspot.com/o/student9527%2Fimg%2Flogo.png?alt=media&token=2beaa3f2-97b2-45b9-aee3-8234a2f2f7f8" alt="mongoose 基本設定" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Student9527&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-TW");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到頁首" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="請輸入關鍵字..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
