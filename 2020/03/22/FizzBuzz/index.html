@@ -10,16 +10,16 @@
 <title>FizzBuzz 問題 - Student9527</title>
 
 
-    <meta name="description" content="給一個整數 n 請列印出 1~n 的每一個整數， 但是 在 n 可以被 3 整除的時候印出 Fizz 來代替原本的 n ， 在 n 可以被 5 整除的時候印出 Buzz 來代替原本的 n ， 在 n 可以被 3 跟 5 整除的時候印出 FizzBuzz 來代替原本的 n 。">
+    <meta name="description" content="給一個整數 n請列印出 1~n 的每一個整數，但是在 n 可以被 3 整除的時候印出 Fizz 來代替原本的 n ，在 n 可以被 5 整除的時候印出 Buzz 來代替原本的 n ，在 n 可以被 3 跟 5 整除的時候印出 FizzBuzz 來代替原本的 n 。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FizzBuzz 問題">
 <meta property="og:url" content="http://student9527.github.io/2020/03/22/FizzBuzz/index.html">
 <meta property="og:site_name" content="Student9527">
-<meta property="og:description" content="給一個整數 n 請列印出 1~n 的每一個整數， 但是 在 n 可以被 3 整除的時候印出 Fizz 來代替原本的 n ， 在 n 可以被 5 整除的時候印出 Buzz 來代替原本的 n ， 在 n 可以被 3 跟 5 整除的時候印出 FizzBuzz 來代替原本的 n 。">
+<meta property="og:description" content="給一個整數 n請列印出 1~n 的每一個整數，但是在 n 可以被 3 整除的時候印出 Fizz 來代替原本的 n ，在 n 可以被 5 整除的時候印出 Buzz 來代替原本的 n ，在 n 可以被 3 跟 5 整除的時候印出 FizzBuzz 來代替原本的 n 。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="http://student9527.github.io/images/og_image.png">
 <meta property="article:published_time" content="2020-03-21T17:47:20.000Z">
-<meta property="article:modified_time" content="2020-03-21T17:50:32.935Z">
+<meta property="article:modified_time" content="2020-03-22T04:29:32.597Z">
 <meta property="article:author" content="Student9527">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://student9527.github.io/images/og_image.png">
@@ -169,12 +169,7 @@
             
         </h1>
         <div class="content">
-            <html><head></head><body><p>給一個整數 n</p>
-<p>請列印出 1~n 的每一個整數，</p>
-<p>但是</p>
-<p>在 n 可以被 3 整除的時候印出 Fizz 來代替原本的 n ，</p>
-<p>在 n 可以被 5 整除的時候印出 Buzz 來代替原本的 n ，</p>
-<p>在 n 可以被 3 跟 5 整除的時候印出 FizzBuzz 來代替原本的 n 。</p>
+            <html><head></head><body><p>給一個整數 n<br>請列印出 1~n 的每一個整數，<br>但是<br>在 n 可以被 3 整除的時候印出 Fizz 來代替原本的 n ，<br>在 n 可以被 5 整除的時候印出 Buzz 來代替原本的 n ，<br>在 n 可以被 3 跟 5 整除的時候印出 FizzBuzz 來代替原本的 n 。</p>
 <a id="more"></a>
 
 <p>js 基本解法</p>
@@ -184,6 +179,18 @@
 <figure class="highlight javascript hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> n = <span class="hljs-number">50</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i <= n; i++){</span><br><span class="line">  <span class="hljs-keyword">let</span> result = <span class="hljs-string">''</span>;</span><br><span class="line">  <span class="hljs-keyword">if</span>(i%<span class="hljs-number">3</span>===<span class="hljs-number">0</span>){</span><br><span class="line">    result += <span class="hljs-string">'Fizz'</span></span><br><span class="line">  }</span><br><span class="line">  <span class="hljs-keyword">if</span>(i%<span class="hljs-number">5</span>===<span class="hljs-number">0</span>){</span><br><span class="line">    result += <span class="hljs-string">'Buzz'</span></span><br><span class="line">  }</span><br><span class="line">  <span class="hljs-keyword">if</span>(result.length ><span class="hljs-number">0</span>){</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(result);</span><br><span class="line">  }</span><br><span class="line">  <span class="hljs-keyword">else</span> {</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(i);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>這樣寫的話，條件繼續增加，只需增加一組 if 就可以了。</p>
+<p>以下是 Java 版本</p>
+<figure class="highlight java hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FizzBuzz</span> </span>{</span><br><span class="line"></span><br><span class="line">	<span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> n = <span class="hljs-number">50</span>;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{</span><br><span class="line">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i <= n; i++) {</span><br><span class="line">			String result = <span class="hljs-string">""</span>;</span><br><span class="line">			<span class="hljs-keyword">if</span> (i % <span class="hljs-number">3</span> == <span class="hljs-number">0</span>) {</span><br><span class="line">				result += <span class="hljs-string">"Fizz"</span>;</span><br><span class="line">			}</span><br><span class="line">			<span class="hljs-keyword">if</span> (i % <span class="hljs-number">5</span> == <span class="hljs-number">0</span>) {</span><br><span class="line">				result += <span class="hljs-string">"Buzz"</span>;</span><br><span class="line">			}</span><br><span class="line">			<span class="hljs-keyword">if</span> (result.length() > <span class="hljs-number">0</span>) {</span><br><span class="line">				System.out.println(result);</span><br><span class="line">			} <span class="hljs-keyword">else</span> {</span><br><span class="line">				System.out.println(i);</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+
+
+
+
+
 </body></html>
         </div>
         
