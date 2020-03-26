@@ -7,22 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>鋼鐵人主持新 YouTube 節目！探討 AI 議題 - Student9527</title>
+<title>Map getOrDefault 方法 - Student9527</title>
 
 
-    <meta name="description" content="想念鋼鐵人的大家，快點來看看小勞勃道尼的新節目">
+    <meta name="description" content="用在沒有這個 key 時，所要給的預設 value。 原始碼">
 <meta property="og:type" content="article">
-<meta property="og:title" content="鋼鐵人主持新 YouTube 節目！探討 AI 議題">
-<meta property="og:url" content="http://student9527.github.io/2019/12/21/ironmanHostAI/index.html">
+<meta property="og:title" content="Map getOrDefault 方法">
+<meta property="og:url" content="http://student9527.github.io/2020/03/27/Map-getOrDefault/index.html">
 <meta property="og:site_name" content="Student9527">
-<meta property="og:description" content="想念鋼鐵人的大家，快點來看看小勞勃道尼的新節目">
+<meta property="og:description" content="用在沒有這個 key 時，所要給的預設 value。 原始碼">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://i.imgur.com/B7gXIBY.jpg">
-<meta property="article:published_time" content="2019-12-21T11:58:36.000Z">
-<meta property="article:modified_time" content="2019-12-21T15:11:56.291Z">
+<meta property="og:image" content="http://student9527.github.io/images/og_image.png">
+<meta property="article:published_time" content="2020-03-26T16:21:07.000Z">
+<meta property="article:modified_time" content="2020-03-26T16:25:04.253Z">
 <meta property="article:author" content="Student9527">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/B7gXIBY.jpg">
+<meta name="twitter:image" content="http://student9527.github.io/images/og_image.png">
 
 
 
@@ -88,7 +88,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="https://firebasestorage.googleapis.com/v0/b/test-666321.appspot.com/o/student9527%2Fimg%2Flogo.png?alt=media&token=2beaa3f2-97b2-45b9-aee3-8234a2f2f7f8" alt="鋼鐵人主持新 YouTube 節目！探討 AI 議題" height="28">
+                <img src="https://firebasestorage.googleapis.com/v0/b/test-666321.appspot.com/o/student9527%2Fimg%2Flogo.png?alt=media&token=2beaa3f2-97b2-45b9-aee3-8234a2f2f7f8" alt="Map getOrDefault 方法" height="28">
             
             </a>
         </div>
@@ -143,20 +143,14 @@
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
     
-    <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="https://i.imgur.com/B7gXIBY.jpg" alt="鋼鐵人主持新 YouTube 節目！探討 AI 議題">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-12-21T11:58:36.000Z">2019-12-21</time>
+                <time class="level-item has-text-grey" datetime="2020-03-26T16:21:07.000Z">2020-03-27</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/view/">view</a>
+                <a class="has-link-grey -link" href="/categories/code/">code</a>
                 </div>
                 
                 
@@ -171,16 +165,21 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                鋼鐵人主持新 YouTube 節目！探討 AI 議題
+                Map getOrDefault 方法
             
         </h1>
         <div class="content">
-            <html><head></head><body><p>想念鋼鐵人的大家，快點來看看小勞勃道尼的新節目</p>
+            <html><head></head><body><p>用在沒有這個 key 時，所要給的預設 value。</p>
+<p>原始碼</p>
 <a id="more"></a>
 
+<figure class="highlight java hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">getOrDefault</span><span class="hljs-params">(Object key, V defaultValue)</span> </span>{</span><br><span class="line">        V v;</span><br><span class="line">        <span class="hljs-keyword">return</span> (((v = get(key)) != <span class="hljs-keyword">null</span>) || containsKey(key))</span><br><span class="line">            ? v</span><br><span class="line">            : defaultValue;</span><br><span class="line"></span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="小勞勃道尼在-YouTube-官方頻道主持科技節目"><a href="#小勞勃道尼在-YouTube-官方頻道主持科技節目" class="headerlink" title="小勞勃道尼在 YouTube 官方頻道主持科技節目"></a>小勞勃道尼在 YouTube 官方頻道主持科技節目</h2><p>這實在是太帥啦！鋼鐵人從電影走到真實世界，跟你聊聊科技的各種主題，快點來看看吧。</p>
-<h4 id="看小勞勃道尼如何用他幽默的調調介紹新科技"><a href="#看小勞勃道尼如何用他幽默的調調介紹新科技" class="headerlink" title="看小勞勃道尼如何用他幽默的調調介紹新科技"></a>看小勞勃道尼如何用他幽默的調調介紹新科技</h4><p>影片如下：<br><a href="https://youtu.be/UwsrzCVZAb8" target="_blank" rel="noopener"><img src="https://i.imgur.com/B7gXIBY.jpg" alt="ironmanAIVideo"></a></p>
+<p>當 Map 集合中有這個 key 時， 就使用這個 key 的值，<br>如果沒有，就使用 defaultValue 的值</p>
+<p>範例說明：<br>比如一個人名跟分數的 Map</p>
+<figure class="highlight java hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MapGetOrDefault</span> </span>{</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{</span><br><span class="line">      </span><br><span class="line">         Map<String, Integer> map = <span class="hljs-keyword">new</span> HashMap<>();</span><br><span class="line">      </span><br><span class="line">	       map.put(<span class="hljs-string">"小華"</span>, <span class="hljs-number">90</span>);</span><br><span class="line">	       map.put(<span class="hljs-string">"小明"</span>, <span class="hljs-number">70</span>);</span><br><span class="line">	       map.put(<span class="hljs-string">"小安"</span>, <span class="hljs-number">80</span>);</span><br><span class="line">      </span><br><span class="line">	       Integer score = map.getOrDefault(<span class="hljs-string">"小華"</span>, <span class="hljs-number">0</span>);</span><br><span class="line">	       System.out.println(score);</span><br><span class="line">         <span class="hljs-comment">// 印出 90，因為 map 中存在小華, 可以印出90</span></span><br><span class="line">      </span><br><span class="line">	       Integer score2 = map.getOrDefault(<span class="hljs-string">"阿奇"</span>, <span class="hljs-number">0</span>);</span><br><span class="line">	       System.out.println(score2);</span><br><span class="line">         <span class="hljs-comment">// 印出 0，因為 map 中不存在 "阿奇",使用默認 0</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
 </body></html>
         </div>
         
@@ -205,17 +204,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/03/22/FizzBuzz/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">FizzBuzz 問題</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/03/19/goToHall/">
-                <span class="level-item">台北車站大廳</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/26/StringReverse/">
+                <span class="level-item">字串反轉(String Reverse)</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -235,7 +227,7 @@
     js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-comments" data-width="100%" data-href="http://student9527.github.io/2019/12/21/ironmanHostAI/" data-num-posts="5"></div>
+<div class="fb-comments" data-width="100%" data-href="http://student9527.github.io/2020/03/27/Map-getOrDefault/" data-num-posts="5"></div>
 
     </div>
 </div>
@@ -635,7 +627,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="https://firebasestorage.googleapis.com/v0/b/test-666321.appspot.com/o/student9527%2Fimg%2Flogo.png?alt=media&token=2beaa3f2-97b2-45b9-aee3-8234a2f2f7f8" alt="鋼鐵人主持新 YouTube 節目！探討 AI 議題" height="28">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/test-666321.appspot.com/o/student9527%2Fimg%2Flogo.png?alt=media&token=2beaa3f2-97b2-45b9-aee3-8234a2f2f7f8" alt="Map getOrDefault 方法" height="28">
                 
                 </a>
                 <p class="is-size-7">
